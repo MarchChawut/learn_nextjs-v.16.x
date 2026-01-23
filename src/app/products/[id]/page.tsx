@@ -32,19 +32,22 @@ const products = [
       "แท็บเล็ตอเนกประสงค์พร้อมชิป M2และจอ Liquid Retina ขนาด 11 นิ<ว",
   },
 ];
+
 export default async function ProductDetailPage({
   params,
 }: ProductDetailPageProps) {
   const { id } = await params;
   const product = products.find((p) => p.id === parseInt(id));
+  
   if (!product) {
     return (
       <main style={{ padding: "2rem" }}>
         <h1>ไม่พบสินค้า</h1>
-        <p>ขออภัย ไม่พบสินค้าที(คุณกําลังมองหา</p>
+        <p>ขออภัย ไม่พบสินค้าที่คุณกําลังมองหา</p>
       </main>
     );
   }
+
   return (
     <main style={{ padding: "2rem" }}>
       <h1 style={{ fontSize: "2rem", marginBottom: "1rem" }}>{product.name}</h1>

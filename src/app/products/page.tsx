@@ -22,6 +22,7 @@ const products = [
   },
   { id: 6, name: "หูฟัง Sony WH-1000XM3", price: 12900, category: "audio" },
 ];
+
 export default async function ProductsPage({
   searchParams,
 }: ProductsPageProps) {
@@ -52,7 +53,7 @@ export default async function ProductsPage({
         />
       </form>
       {filteredProducts.length === 0 ? (
-        <p style={{ color: "#666" }}>ไม่พบสินค้าที(ค้นหา</p>
+        <p style={{ color: "#666" }}>ไม่พบสินค้าที่ค้นหา</p>
       ) : (
         <>
           <p style={{ marginBottom: "1rem", color: "#666" }}>
