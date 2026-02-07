@@ -1,8 +1,36 @@
+import { Metadata } from "next";
+
 interface ProductDetailPageProps {
   params: Promise<{
     id: string;
   }>;
 }
+
+function getProductById(id: string) {
+  return products.find((p) => p.id === parseInt(id));
+}
+
+export async function generateMetadata({
+  params,
+}: ProductDetailPageProps): Promise<Metadata> {
+  const { id } = await params;
+  const product = getProductById(id);
+  if (!product) {
+    return {
+      title: "ไม่พบสินค้า",
+    };
+  }
+
+  return {
+    title: product.name,
+    description: product.description,
+    openGraph: {
+      title: product.name,
+      description: product.description,
+    },
+  };
+}
+
 const products = [
   {
     id: 1,
@@ -22,14 +50,14 @@ const products = [
     name: "หูฟังไร้สาย AirPods Pro",
     price: 8990,
     description:
-      "หูฟังระดับพรีเมียมพร้อมActive Noise Cancellation และ Spatial Audio",
+      "หูฟังระดับพรีเมียมพร้อม Active Noise Cancellation และ Spatial Audio",
   },
   {
     id: 4,
     name: "แท็บเล็ต iPad Air",
     price: 21900,
     description:
-      "แท็บเล็ตอเนกประสงค์พร้อมชิป M2และจอ Liquid Retina ขนาด 11 นิ<ว",
+      "แท็บเล็ตอเนกประสงค์พร้อมชิป M2 และจอ Liquid Retina ขนาด 11 นิ<ว",
   },
 ];
 
@@ -37,13 +65,12 @@ export default async function ProductDetailPage({
   params,
 }: ProductDetailPageProps) {
   const { id } = await params;
-  const product = products.find((p) => p.id === parseInt(id));
-  
+  const product = getProductById(id);
   if (!product) {
     return (
       <main style={{ padding: "2rem" }}>
         <h1>ไม่พบสินค้า</h1>
-        <p>ขออภัย ไม่พบสินค้าที่คุณกําลังมองหา</p>
+        <p>ขออภัย ไม่พบสินค้าที่คุณกำลังมองหา</p>
       </main>
     );
   }

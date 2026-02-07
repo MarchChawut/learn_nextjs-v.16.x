@@ -7,6 +7,12 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "สินค้า",
+}
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-linear-to-b from-slate-50 to-slate-100">

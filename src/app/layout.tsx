@@ -3,8 +3,39 @@ import Link from "next/link";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "My Next.js App",
-  description: "เว็บแอปพลิเคชันที่สร้างด้วย Next.js",
+  title: {
+    default: "My Next.js App",
+    template: "%s | My Next.js App",
+  },
+  description:
+    "เว็บแอปพลิเคชันที(สร้างด้วย Next.js 16 พร้อมฟีเจอร์ Cache Component",
+  keywords: ["Next.js", "React", "Web Development", "TypeScript"],
+  authors: [{ name: "CFH" }],
+  creator: "CFH",
+  publisher: "Code%Fun House",
+  metadataBase: new URL("https://code-n-fun-house.top"),
+  openGraph: {
+    type: "website",
+    locale: "th_TH",
+    url: "https://code-n-fun-house.top",
+    siteName: "My Next.js App",
+    title: "My Next.js App",
+    description: "เว็บแอปพลิเคชันที(สร้างด้วย Next.js 16",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "My Next.js App",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "My Next.js App",
+    description: "เว็บแอปพลิเคชันที(สร้างด้วย Next.js 16",
+    images: ["/x-image.jpg"],
+  },
 };
 
 export default function RootLayout({

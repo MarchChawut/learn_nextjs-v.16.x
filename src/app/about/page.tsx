@@ -5,6 +5,18 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "เกี่ยวกับเรา",
+  description: "เว็บแอปพลิเคชันที(สร้างด้วย Next.js 16 พร้อมฟีเจอร์ Cache Component",
+  openGraph: {
+    title: "เกี่ยวกับเรา | My Next.js App",
+    description:
+      "เว็บแอปพลิเคชันที(สร้างด้วย Next.js 16 พร้อมฟีเจอร์ Cache Component",
+  }
+}
+
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-slate-50">

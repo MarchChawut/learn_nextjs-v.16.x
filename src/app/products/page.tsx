@@ -4,6 +4,7 @@ interface ProductsPageProps {
     search?: string;
   }>;
 }
+
 const products = [
   {
     id: 1,
